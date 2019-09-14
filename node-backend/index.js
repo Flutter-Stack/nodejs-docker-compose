@@ -1,0 +1,1 @@
+console.log("I am node js running inside container at 3000 and 3001");

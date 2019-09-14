@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  node-backend:
+    build: ./node-backend/
+    container_name: node-backend
+    ports:
+      - 3000:3000
+      - 3001:3001
+    volumes:
+      - ./node-backend/:/usr/src/app
+    command: "npm install"
+    command: "nodemon -L start"
+    restart: always
+
