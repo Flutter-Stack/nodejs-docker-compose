@@ -15,4 +15,5 @@ services:
     command: "cat ~/.npmrc"
     command: "npm install"
     command: "nodemon -L start"
+    command: "npm start"
     restart: always
