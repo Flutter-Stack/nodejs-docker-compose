@@ -1,4 +1,4 @@
-FROM node:8.16.0-alpine
+FROM node:lts-alpine
 RUN mkdir -p /usr/src/app
 RUN mkdir -p /usr/src/app/public/files
 RUN apk update && apk upgrade && apk add --no-cache bash git openssh

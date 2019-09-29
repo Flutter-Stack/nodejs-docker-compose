@@ -10,7 +10,9 @@ services:
       - 3001:3001
     volumes:
       - ./node-backend/:/usr/src/app
+    command: "npm config set save=true"
+    command: "npm config set save-exact=true"
+    command: "cat ~/.npmrc"
     command: "npm install"
     command: "nodemon -L start"
     restart: always
-

@@ -1,80 +1,19 @@
-Setting up the instance.
+https://softchris.github.io/pages/graphql-express.html#why-graphql
+
+Building a GraphQL server using Node.js and Express,
 
 
-1. clone the //github.com/dcentrum/proj-iota-disne.git repository.
-2. $ cp proj-iota-disne/disne-backend/.env-prod  proj-iota-disne/disne-backend/.env
-  generate secrete key https://mherman.org/blog/token-based-authentication-with-node/.
+1. Building blocks
+A GraphQL Server consists of the following:
 
-  database details:
-  I have created 2 projects for dev and prod.
-  Development: edit proj-iota-disne/disne-backend/.env file
-  and change MONGO_URI to MONGO_URI='mongodb+srv://Disne-dev:Disne-dev@cluster0-9avbt.gcp.mongodb.net/test' .
+a schema, the schema defines our entities but also what we can query or call a mutation on
+resolvers, resolver functions talks to a 3rd party API or our database and ends up returning data back to our user
 
-  Production: change the <password>  of MONGO_URI.
+2. Install dependencies
+Let’s start off by installing our needed dependencies. We need the following:
 
-3. start the docker compose services
-   $ cd proj-iota-disne  && docker-compose up -d
+express, to create our web server
+graphql, to install graphql, our core lib that enables us to leverage graphql
+express-graphql, this library enables us to bind together graphql and express
 
-4. $ docker ps
-
-   shows  container disne-backend is running on port 3000.
-
-API:
-
-1. Register :  http://35.162.102.130:3000/api/user/register
-
-  Payload:
-        {
-          "first_name":"jlfdk;lksajfdl",
-          "last_name":"jlfdk;lksajfdl",
-          "email":"suresh.kumara@gmail.com",
-          "phone":"9632324012",
-          "country_code":"IN",
-          "password": "sdjhfakfd"
-        }
-
-  Response:
-   1. On Sucess:
-        {
-          "msg": "returns user id"
-        }
-   2. On Error:
-       {
-         "msg": "error message"
-       }
-
- 2. Login :  http://35.162.102.130:3000/api/user/login
-   Payload:
-         {
-           "email":"suresh.kumara@gmail.com",
-           "password": "sdjhfakfd"
-         }
-
-   Response:
-    1. On Sucess:
-         token
-    2. On Error:
-        {
-          "msg": "error message"
-        }
-
-
-
-
-<!--
-
-<b>Prerequisites<b>
-
-- npm install
-- npm start
-  - This will start the Node Server on PORT 3000 and establish connection with MongoDB
-
-Routes
-
-1. localhost:5000/api/user/register
-   - Payload: {name: req.body.name,
-     email: req.body.email,
-     password: req.body.password}
-2. localhost:5000/api/user/login
-   - Payload: {email: req.body.email,
-     password: req.body.password} -->
+express and graphql and create a REST api, but we can do this better by adding express-graphql,
