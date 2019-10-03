@@ -1,17 +1,8 @@
-var  express = require("express");
-const app = express();
-var graphqlHTTP = require("express-graphql");
-var schema,root  = require("./schema");
+const { ApolloServer } = require('apollo-server');
+const { typeDefs, resolvers } = require('./schema');
+const server = new ApolloServer({ typeDefs, resolvers });
+port = process.env.PORT || 3000;
 
-app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true
-  })
-);
-
-app.listen(3000, function() {
-  console.log('Listening on port 3000');
+server.listen(port).then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`); // eslint-disable-line no-console
 });

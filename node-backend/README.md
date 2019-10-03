@@ -17,3 +17,49 @@ graphql, to install graphql, our core lib that enables us to leverage graphql
 express-graphql, this library enables us to bind together graphql and express
 
 express and graphql and create a REST api, but we can do this better by adding express-graphql,
+
+
+
+
+
+
+3. appollo graphql server 
+
+https://developer.okta.com/blog/2019/05/29/build-crud-nodejs-graphql
+
+mutation Create {
+  addQuote(phrase: "You know nothingm, John snow") {
+    id
+  }
+}
+
+query Read{
+  quotes {
+    id
+    phrase
+    quotee
+  }
+}
+
+mutation Update($id: ID!) {
+  editQuote(id:$id, quotee:"Updated quotee text") {
+    id
+    phrase
+    quotee
+  }
+}
+
+mutation delete($id: ID!){
+  deleteQuote(id:$id) {
+    ok
+  }
+}
+
+
+{
+  "id": "e2c24964-6823-4839-8b3d-c9f971b61b9d"
+}
+
+
+
+
